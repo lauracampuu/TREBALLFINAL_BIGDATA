@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+ <!-- Per insertar Codi, podeu utilitzar http://hilite.me/ -->
+    <head>
+        <title>Análisis Playlists Spotify Países: Top 50</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <!-- Si voleu canviar la font o algun altre paràmetre, ho podeu fer aquí, o al CSS -->
+        <style>
+            body {
+                background-color: white;
+            }
+            .container {
+                max-width: 1100px;
+            }
+            h1, h2, h3, h4, h5, p {
+                color:black;
+            }
+            a:link {
+                color:brown;
+            }
+            a:visited {
+                color: #555a5e;
+            }
+            center img{
+                margin: 0 auto;
+                max-width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+            <p>Autores: Alumno 1, Alumno 2</p>
+            </header>
+                <h1>Análisis Playlists Spotify Países: Top 50</h1>
+                <p>La música en streaming, como la que ofrece Spotify, ha cambiado completamente la forma en que escuchamos música hoy en día. Dentro de todas las opciones que ofrece Spotify, las listas "top 50" son como una especie de ventana mágica que nos muestra qué está sonando fuerte en todo el mundo. En este proyecto, nos metimos de lleno en el mundo de esas listas top 50 de Spotify, revisando los datos de 73 países diferentes. Queríamos entender qué está pasando en la música en todo el mundo: quiénes son los artistas, cuáles son las canciones que la gente no se cansa de escuchar, qué géneros están pegando más y un montón de cosas más. La idea detrás de este estudio es ver cómo la música, que es algo que une a la gente de diferentes partes del mundo, se refleja en las listas de reproducción y cómo eso afecta a la industria musical, a los que trabajan en publicidad y a los fans que siempre están buscando nueva música y quieren saber qué es lo último que se escucha.  A través de este análisis, queremos mostrar cómo la música hoy en día es un verdadero mosaico de estilos, culturas y tendencias que podemos descubrir fácilmente en estas listas top 50 de Spotify.</p>
+                <h2>Apartado técnico</h2>
+                <h3>Motivación e interés</h3>
+                <p></p>
+                <h3>Objetivos del estudio</h3>
+                <p></p>
+                <h3>Extracción de datos</h3>
+                <p>PONER AQUI PUNTO 3 Y 4 DEL DRIVE</p>
+                <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">spotipy</span>
+<span style="color: #f92672">from</span> <span style="color: #f8f8f2">spotipy.oauth2</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">SpotifyClientCredentials</span>
+<span style="color: #f92672">import</span> <span style="color: #f8f8f2">json</span>
+
+<span style="color: #f8f8f2">api_client_id</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span>
+<span style="color: #f8f8f2">api_client_secret</span> <span style="color: #f92672">=</span> <span style="color: #e6db74">&quot;&quot;</span>
+
+<span style="color: #f8f8f2">spotify</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotipy</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">Spotify(client_credentials_manager</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">SpotifyClientCredentials(api_client_id,api_client_secret))</span>
+
+<span style="color: #f8f8f2">results</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotify</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">artist_related_artists(</span><span style="color: #e6db74">&quot;&quot;</span><span style="color: #f8f8f2">)</span>
+
+<span style="color: #75715e"># OPCION 1</span>
+<span style="color: #66d9ef">with</span> <span style="color: #f8f8f2">open(</span><span style="color: #e6db74">&#39;data.json&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;w&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">f:</span>
+    <span style="color: #f8f8f2">json</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dump(results,</span> <span style="color: #f8f8f2">f)</span>
+
+<span style="color: #75715e"># OPCION 2</span>
+<span style="color: #66d9ef">with</span> <span style="color: #f8f8f2">open(</span><span style="color: #e6db74">&#39;data_clean.json&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;w&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">encoding</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;utf-8&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">f:</span>
+    <span style="color: #f8f8f2">json</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dump(results,</span> <span style="color: #f8f8f2">f,</span> <span style="color: #f8f8f2">ensure_ascii</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False,</span> <span style="color: #f8f8f2">indent</span><span style="color: #f92672">=</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- Exemple de Fragment de codi generat amb http://hilite.me/ -->
+                <div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">capturer.crawler</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">c</span>
+    <span style="color: #f92672">import</span> <span style="color: #f8f8f2">export</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">e</span>
+
+    <span style="color: #f8f8f2">queries</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;coronavirus&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #75715e"># You can use this as a list</span>
+    <span style="color: #f8f8f2">max_results</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">5</span> <span style="color: #75715e">## Nº of results in search</span>
+
+    <span style="color: #66d9ef">def</span> <span style="color: #a6e22e">main</span><span style="color: #f8f8f2">(q,</span> <span style="color: #f8f8f2">max_results):</span>
+                <span style="color: #f8f8f2">videos</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">c</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">explore_videos(q,</span> <span style="color: #f8f8f2">max_results)</span>
+                <span style="color: #f8f8f2">e</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">export_data(videos,</span> <span style="color: #f8f8f2">q)</span>
+
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">__name__</span> <span style="color: #f92672">==</span> <span style="color: #e6db74">&quot;__main__&quot;</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">q</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">queries:</span>
+            <span style="color: #f8f8f2">main(q,</span> <span style="color: #f8f8f2">max_results)</span>
+    </pre></div>
+    <!-- Fi Fragment de codi -->
+    <h2>La investigación</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <!-- Ejemplo de codigo de Grafico incrustado-->
+    <div class='tableauPlaceholder' id='viz1681300013018' style='position: relative'><noscript><a href='#'><img alt='Prmedio de streamers por dia ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;promstreamersdia&#47;Prmediodestreamerspordia&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='promstreamersdia&#47;Prmediodestreamerspordia' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;promstreamersdia&#47;Prmediodestreamerspordia&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1681300013018');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3>Podemos hacer sub-secciones</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class='tableauPlaceholder' id='viz1714381841367' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tw&#47;TwitchActivity10012021&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TwitchActivity10012021&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tw&#47;TwitchActivity10012021&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1714381841367');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1100px';vizElement.style.height='3027px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1100px';vizElement.style.height='3027px';} else { vizElement.style.width='100%';vizElement.style.height='1027px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class='tableauPlaceholder' id='viz1714381801032' style='position: relative'><noscript><a href='#'><img alt='Progressió ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;progression_16818283229980&#47;Progressi&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='progression_16818283229980&#47;Progressi' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;progression_16818283229980&#47;Progressi&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1714381801032');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <h3>Conclusiones</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                       
+            <footer>
+			<hr>
+			<p>
+               AUTORES
+            </p>
+
+			</footer>
+		</div>
+	</body>
+</html>
