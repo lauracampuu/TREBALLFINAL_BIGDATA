@@ -41,7 +41,37 @@
                 <p>Nuestro objetivo principal es analizar las tendencias musicales representadas en las playlists top 50 de Spotify de 73 países diferentes. Queremos entender qué artistas, canciones y géneros son más populares en diversas partes del mundo y cómo estas preferencias pueden variar según la nación. Esto nos permitirá obtener una visión global de la música y entender cómo la música llega a todos lados y cómo afecta a la gente de distintas culturas, y también dar información útil a la gente del mundo de la música, del ámbito de publicidad y a los fans que quieren encontrar nuevos artistas y canciones y saber qué está de moda (y que no). </p>
                 <h3>Extracción de datos</h3>
                 <p>PONER AQUI PUNTO 3 Y 4 DEL DRIVE + los CODIGOS </p>
-                <!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">spotipy</span>
+		<h3>Presentación del dataset</h3>
+                <p>(poner html del dataset)</p>
+		<p>El dataset en cuestión recoge información sobre 74 playlists de Spotify, cada una representando un país diferente de todo el mundo. Con un total de 3651 filas y 31 columnas, este conjunto de datos proporciona una visión amplia de la popularidad musical global y las características de las canciones incluidas en estas playlists.</p>
+                <p>El dataset contiene, 3651 filas que dada fila representa una canción única incluida en una de las 74 playlists, y 31 columnas que abarcan diversas características tanto de los artistas como de las canciones. </p>
+		<p>En cuanto a la integridad de los datos, es importante señalar qué información está disponible y cuál podría estar incompleta. Las columnas incluyen, entre otras, información sobre el número de seguidores del artista, géneros musicales, popularidad del artista, características de las canciones (como danceability, energy, key, loudness… y detalles específicos de las canciones (como duración, popularidad, nombre, y si es explícita o no). </p>
+		<p>Los datos presentes en cuestion, para ser entendidos, son los siguientes:
+		<b>artist_followers:</b> Número de seguidores del artista.
+		<b>artist_genres:</b> Géneros musicales del artista.
+		<b>artist_id:</b> Identificador único del artista en Spotify.
+		<b>artist_popularity:</b> Popularidad del artista en Spotify.
+		<b>danceability:</b> La capacidad de bailar de la canción. (1.0 es la pista más bailable)
+		<b>energy:</b> La energía de la canción. (1.0 representa la canción más energética)
+		<b>key:</b> La clave tonal de la canción (0 = Do, 1 = Do#, etc.).
+		<b>loudness:</b> El volumen general de la pista en decibelios (dB).
+		<b>mode:</b> El modo de la canción (0 = menor, 1 = mayor)
+		<b>speechiness:</b> La presencia de palabras habladas en la pista. (1.0 representa la pista completamente hablada)
+		<b>acousticness:</b> La probabilidad de que la canción sea acústica.(1.0 representa una canción completamente acústica)
+		<b>instrumentalness:</b> La probabilidad de que la canción no contenga voces. (1.0 representa una pista completamente instrumental.
+		<b>liveness:</b> La probabilidad de que la canción se haya grabado en vivo. (1.0 representa una pista en vivo)
+		<b>valence:</b> La positividad de la canción. (1.0 es la pista más positiva)
+		<b>tempo:</b> El tempo estimado de la canción en BPM (beats por minuto).
+		<b>type:</b> Tipo de objeto en Spotify.
+		<b>id uri, track_href, analysis_url:</b> Detalles y enlaces de la canción.
+		<b>duration_ms_x, duration_ms_y time_signature, track_id:</b> Información sobre la duración y la métrica de la canción.
+		<b>artistas:</b> Nombre de los artistas.
+		<b>track_name:</b> Nombre de la canción
+		<b>popularity:</b> Popularidad de la canción en Spotify.
+		<b>primer_artista_id, playlist_id, playlist:</b> Información sobre la playlist.
+		<b>explicit:</b> Indica si la canción contiene contenido explícito.
+		</p>
+<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f92672">import</span> <span style="color: #f8f8f2">spotipy</span>
 <span style="color: #f92672">from</span> <span style="color: #f8f8f2">spotipy.oauth2</span> <span style="color: #f92672">import</span> <span style="color: #f8f8f2">SpotifyClientCredentials</span>
 <span style="color: #f92672">import</span> <span style="color: #f8f8f2">json</span>
 
