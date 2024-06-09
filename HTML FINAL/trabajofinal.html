@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+ <!-- Per insertar Codi, podeu utilitzar http://hilite.me/ -->
+    <head>
+        <meta charset="UTF-8">
+        <title>Análisis Playlists Spotify Países: Top 50</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <!-- Si voleu canviar la font o algun altre paràmetre, ho podeu fer aquí, o al CSS -->
+        <style>
+            body {
+                background-color: white;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            .container {
+                max-width: 1100px;
+                width: 100%;
+                margin: 0 auto;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            h1, h2, h4, h5, p {
+                color: black;
+            }
+
+            h3{
+                color: rgb(4, 4, 122);
+            }
+            a:link {
+                color: brown;
+            }
+            a:visited {
+                color: #555a5e;
+            }
+            
+            .banner-container {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background-image: url('imagenes/banner.png');
+            background-size: cover;
+            background-position: center;}
+
+            p {
+            text-align: justify;
+        }
+
+        </style>
+        </head>
+    <body>
+        <div class="banner-container"></div>
+        <div class="container">
+            <header>
+                
+            <h4>Autores:  Carlos Aruquipa, Laura Campuzano y Valentina Mejia</h4>
+            </header>
+                <h1>Análisis Playlists Spotify Países: Top 50</h1>
+
+                <p>La música en streaming, como la que ofrece Spotify, ha cambiado completamente la forma en que escuchamos música hoy en día. Dentro de todas las opciones que ofrece Spotify, las listas "top 50" son como una especie de ventana mágica que nos muestra qué está sonando fuerte en todo el mundo. En este proyecto, nos metimos de lleno en el mundo de esas listas top 50 de Spotify, revisando los datos de 73 países diferentes. Queríamos entender qué está pasando en la música en todo el mundo: quiénes son los artistas, cuáles son las canciones que la gente no se cansa de escuchar, qué géneros están pegando más y un montón de cosas más. La idea detrás de este estudio es ver cómo la música, que es algo que une a la gente de diferentes partes del mundo, se refleja en las listas de reproducción y cómo eso afecta a la industria musical, a los que trabajan en publicidad y a los fans que siempre están buscando nueva música y quieren saber qué es lo último que se escucha.  A través de este análisis, queremos mostrar cómo la música hoy en día es un verdadero mosaico de estilos, culturas y tendencias que podemos descubrir fácilmente en estas listas top 50 de Spotify.</p>
+                
+                <h2>Apartado técnico</h2>
+                <h3>Motivación e interés</h3>
+                <p>En la era digital de la música, las playlists de plataformas de streaming como Spotify se han convertido en una forma poderosa de explorar la música actual. Entre estas playlists, las denominadas "top 50" representan una selección privilegiada de las canciones más populares y exitosas en diferentes regiones del mundo. Nuestro trabajo se enfoca en explorar y analizar exhaustivamente estas playlists top 50 de Spotify a nivel global. Hemos recopilado datos de 73 playlists, es decir, 73 países también, abarcando continentes enteros y ofreciendo una visión panorámica de las tendencias musicales contemporáneas. La motivación detrás de este estudio es comprender las dinámicas cambiantes de la industria musical en un contexto globalizado. Queremos identificar patrones, tendencias y preferencias de audiencia esto nos ayuda a ver cómo la música va más allá de las fronteras y las diferencias culturales. Para lograr este objetivo, hemos recopilado datos detallados de cada playlist, incluyendo información sobre los artistas representados, sus canciones más escuchadas, la duración de las pistas, la popularidad de los artistas, así como los géneros musicales asociados a cada artista, entre otros. Este estudio nos ayudará a entender qué tipo de música gusta en distintas partes del mundo, y además, podría ser útil para la gente de la industria musical, los que trabajan en publicidad y para los fans que quieren descubrir nuevas bandas y entender lo que está de moda. Nuestro enfoque a nivel continental y mundial nos permitirá comparar y contrastar las tendencias musicales entre diferentes países y regiones, ofreciendo una visión completa y enriquecedora del panorama musical actual. En resumen, este estudio tiene como objetivo ofrecer una mirada profunda y completa a las playlists top 50 de Spotify, destacando la diversidad y la riqueza del panorama musical global en la era del streaming. </p>
+                <h3>Objetivos del estudio</h3>
+                <p>Nuestro objetivo principal es analizar las tendencias musicales representadas en las playlists top 50 de Spotify de 73 países diferentes. Queremos entender qué artistas, canciones y géneros son más populares en diversas partes del mundo y cómo estas preferencias pueden variar según la nación. Esto nos permitirá obtener una visión global de la música y entender cómo la música llega a todos lados y cómo afecta a la gente de distintas culturas, y también dar información útil a la gente del mundo de la música, del ámbito de publicidad y a los fans que quieren encontrar nuevos artistas y canciones y saber qué está de moda (y que no). </p>
+                <h3>Extracción de datos</h3>
+                <p>Para la obtención de los datos de las playlist se ha utilizado Pycharm y la API de Spotify. Asimismo, se han descargado diferentes librerías y utilizado diversos módulos como pandas para trabajar con datos estructurados, glob para ejecutar archivos y directorios, spotipy, JSON, etc.</p>
+		<p>Previamente, se elaboró manualmente un archivo excel llamado “playlist.xlsx” con datos de 73 playlists que contienen el país, la ID y el nombre de la playlist.</p>
+		
+        <h3><b>Primera extracción de Datos</b></h3>
+		<a href="https://github.com/lauracampuu/TREBALLFINAL_BIGDATA/blob/main/HTML_WEB/HtmlWeb" target="_blank">Enlace al respositorio GitHub</a>
+		<p>El siguiente código hace uso de la biblioteca Spotipy y realiza llamamientos a la API de Spotify para la obtención de datos sobre listas de reproducción de diferentes países y los guarda en archivos JSON.</p> 
+		<p>Luego, utiliza un archivo Excel llamado "playlist.xlsx" que contiene las IDs de las playlists que se quieren extraer. Los datos obtenidos se cargan en Dataframes de Pandas que lee cada una de las ID de las playlist y su país correspondiente.</p>
+<!-- HTML generated using hilite.me --><div style="background: #000000; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #cccccc">playlists</span> <span style="color: #3399cc">=</span> <span style="color: #cccccc">pd</span><span style="color: #3399cc">.</span><span style="color: #cccccc">read_excel(</span><span style="color: #cd0000">&quot;playlist.xlsx&quot;</span><span style="color: #cccccc">)</span>
+</pre></div>
+		<p>El almacenamiento de los datos se guarda en una carpeta llamada raw_data, donde se varia el nombre del archivo para evitar problemas con los nombres de los archivos, donde se tiene en cuenta el país de cada playlist. También se asegura que la llamada la API se haga solo si el archivo de la ID pasada no existe.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">index,</span> <span style="color: #f8f8f2">row</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">playlists</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">iterrows():</span>
+    <span style="color: #f8f8f2">pais</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">row[</span><span style="color: #e6db74">&quot;COUNTRY&quot;</span><span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">playlist_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">row[</span><span style="color: #e6db74">&quot;ID&quot;</span><span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">playlist_name</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">row[</span><span style="color: #e6db74">&quot;NAME&quot;</span><span style="color: #f8f8f2">]</span>
+    <span style="color: #f8f8f2">file_path</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">Path(f</span><span style="color: #e6db74">&#39;raw_data/{pais}-{playlist_id}.json&#39;</span><span style="color: #f8f8f2">)</span>
+
+    <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">file_path</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exists():</span>
+        <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(f</span><span style="color: #e6db74">&quot;La playlist {playlist_id} ya se ha descargado&quot;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">pass</span>
+    <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #f8f8f2">api_response</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotify</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">playlist_items(playlist_id)</span>
+        <span style="color: #66d9ef">with</span> <span style="color: #f8f8f2">open(file_path,</span> <span style="color: #e6db74">&#39;w&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">encoding</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;utf-8&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">f:</span>
+            <span style="color: #f8f8f2">json</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">dump(api_response,</span> <span style="color: #f8f8f2">f,</span> <span style="color: #f8f8f2">ensure_ascii</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False,</span> <span style="color: #f8f8f2">indent</span><span style="color: #f92672">=</span><span style="color: #ae81ff">4</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+		<p>Una vez se tienen todos los archivos JSON en la carpeta se usa la librería “glob” para cargar todos los datos.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">files</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">glob</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">glob(</span><span style="color: #e6db74">&quot;raw_data/*json&quot;</span><span style="color: #f8f8f2">)</span>
+</pre></div>	
+		<h3>Procesamiento y combinación del conjunto de datos</h3>
+		<p>Una vez se hace esto se procesan los datos de cada archivo JSON para extraer la información de nuestro interés como los nombres de los artistas, nombre de las canciones, popularidad, duración, si es explicita y el ID del primer artista.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">all_data</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[]</span>  
+
+<span style="color: #f8f8f2">files</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">glob</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">glob(</span><span style="color: #e6db74">&quot;raw_data/*.json&quot;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(len(files))</span>
+
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">file</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">files:</span>
+    <span style="color: #f8f8f2">playlist_data</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[]</span> 
+
+    <span style="color: #66d9ef">with</span> <span style="color: #f8f8f2">open(file,</span> <span style="color: #e6db74">&#39;r&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">encoding</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;utf-8&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">f:</span>
+        <span style="color: #f8f8f2">datos</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">json</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">load(f)</span>
+        <span style="color: #66d9ef">try</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #f8f8f2">pais</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">file</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">split(</span><span style="color: #e6db74">&quot;-&quot;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">split(</span><span style="color: #e6db74">&quot;/&quot;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span> 
+        <span style="color: #66d9ef">except</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #f8f8f2">pais</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">file</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">split(</span><span style="color: #e6db74">&quot;-&quot;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">split(</span><span style="color: #e6db74">&quot;</span><span style="color: #ae81ff">\\</span><span style="color: #e6db74">&quot;</span><span style="color: #f8f8f2">)[</span><span style="color: #ae81ff">1</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(pais)</span>
+
+        <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">item</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">datos[</span><span style="color: #e6db74">&quot;items&quot;</span><span style="color: #f8f8f2">]:</span>
+            <span style="color: #f8f8f2">artists</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[artists[</span><span style="color: #e6db74">&quot;name&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">artists</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;album&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;artists&quot;</span><span style="color: #f8f8f2">]]</span>
+            <span style="color: #f8f8f2">track_name</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;name&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">popularity</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;popularity&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">playlist</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pais</span>
+            <span style="color: #f8f8f2">track_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;id&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">duration_ms</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;duration_ms&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">explicit</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;explicit&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">primer_artista_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">item[</span><span style="color: #e6db74">&quot;track&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;artists&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #ae81ff">0</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;id&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">playlist_url</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">datos[</span><span style="color: #e6db74">&quot;href&quot;</span><span style="color: #f8f8f2">]</span>
+            <span style="color: #f8f8f2">playlist_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">playlist_url</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">split(</span><span style="color: #e6db74">&quot;/&quot;</span><span style="color: #f8f8f2">)[</span><span style="color: #f92672">-</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">]</span>
+
+            <span style="color: #f8f8f2">tupla</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">(artists,</span> <span style="color: #f8f8f2">track_name,</span> <span style="color: #f8f8f2">popularity,</span> <span style="color: #f8f8f2">primer_artista_id,</span> <span style="color: #f8f8f2">playlist_id,</span> <span style="color: #f8f8f2">playlist,</span> <span style="color: #f8f8f2">track_id,</span> <span style="color: #f8f8f2">duration_ms,</span> <span style="color: #f8f8f2">explicit)</span>
+            <span style="color: #f8f8f2">playlist_data</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(tupla)</span>
+
+    <span style="color: #f8f8f2">df_playlist</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">DataFrame(playlist_data,</span>
+                               <span style="color: #f8f8f2">columns</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">[</span><span style="color: #e6db74">&#39;artistas&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;track_name&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;popularity&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;primer_artista_id&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;playlist_id&#39;</span><span style="color: #f8f8f2">,</span>
+                                        <span style="color: #e6db74">&#39;playlist&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;track_id&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;duration_ms&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;explicit&quot;</span><span style="color: #f8f8f2">])</span>
+    <span style="color: #f8f8f2">all_data</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">append(df_playlist)</span> 
+</pre></div>
+		<p>Todos estos datos se depositan en la lista vacia <b>all_data</b> y se combinan todos los DataFrames individuales en un solo y se almacena en un archivo excel.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">df_combined</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">concat(all_data,</span> <span style="color: #f8f8f2">ignore_index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">True)</span>
+
+<span style="color: #f8f8f2">df_combined</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_excel(</span><span style="color: #e6db74">&quot;canciones_en_playlists.xlsx&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+</pre></div>
+		<p>Para las características de audio de cada canción se define una función que llama la API de spotify pasando el ID de la canción y se usa un try y except para manejar posibles errores que se puedan presentar mientras se ejecuta la función y evitar que se detenga el programa abruptamente. Si no hay problemas se almacena un archivo dentro de la carpeta paso2, donde varia el nombre del archivo según la ID y si hay un error se guarda el mensaje de error, la ID para un análisis posterior y reintenta la solicitud después de un tiempo.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">get_audio_features</span><span style="color: #f8f8f2">(track):</span>
+    <span style="color: #f8f8f2">track_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">track</span> 
+    <span style="color: #66d9ef">try</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #f8f8f2">audio_features</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotify</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">audio_features(track_id)</span>
+        <span style="color: #f8f8f2">data</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">DataFrame</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">from_dict(audio_features,</span> <span style="color: #f8f8f2">orient</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;columns&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;track_id&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">track_id</span>
+        <span style="color: #f8f8f2">data</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_excel(f</span><span style="color: #e6db74">&quot;paso2/{track_id}-audio_features.xlsx&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+
+    <span style="color: #66d9ef">except</span> <span style="color: #f8f8f2">spotipy</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exceptions</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">SpotifyException</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">e:</span>
+        <span style="color: #f8f8f2">handle_spotify_exception(e,</span> <span style="color: #f8f8f2">track_id)</span>
+      
+</pre></div>
+		<p>El procesamiento de las características del audio se hace iterando en todas las pistas únicas dentro del dataset de playlist para obtener sus características y guardar en un archivo Excel individual.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">df</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_excel(</span><span style="color: #e6db74">&quot;canciones_en_playlists.xlsx&quot;</span><span style="color: #f8f8f2">)</span>
+
+<span style="color: #f8f8f2">tracks</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">df[</span><span style="color: #e6db74">&quot;track_id&quot;</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">unique()</span>
+<span style="color: #f8f8f2">tracks</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">tracks</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">tolist()</span>
+<span style="color: #f8f8f2">jobs</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">len(tracks)</span>
+
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">track</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">tracks:</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f92672">not</span> <span style="color: #f8f8f2">os</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">path</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exists(f</span><span style="color: #e6db74">&quot;paso2/{track}-audio_features.xlsx&quot;</span><span style="color: #f8f8f2">):</span>
+
+        <span style="color: #f8f8f2">get_audio_features(track)</span>
+        <span style="color: #f8f8f2">time</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sleep(random</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">randint(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">3</span><span style="color: #f8f8f2">))</span>
+</pre></div>
+		<p>La combinación de las características de audio se hace en primer lugar, cargando los datos de los archivos excel generados en la carpeta “paso2” y se corrobora que el tipo de datos “track_id” coincida para facilitar la combinación posterior.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">dfs</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">glob</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">glob(</span><span style="color: #e6db74">&quot;paso2/*.xlsx&quot;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">lista</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_excel(d)</span> <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">d</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">dfs]</span>
+<span style="color: #f8f8f2">final_audio</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">concat(lista)</span>
+<span style="color: #f8f8f2">final_audio</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">track_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">final_audio</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">track_id</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">astype(str)</span>
+</pre></div>
+		<p>Luego se procede a combinar las características de las playlist cargando los datos de las playlist, incluyendo las ID de las pistas.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">df_playlists</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_excel(</span><span style="color: #e6db74">&quot;canciones_en_playlists.xlsx&quot;</span><span style="color: #f8f8f2">)</span>
+<span style="color: #f8f8f2">df_playlists</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">track_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">df_playlists</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">track_id</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">astype(str)</span>
+</pre></div>
+		<p>Por otra parte, para obtener información sobre el artista como los seguidores, los géneros a los que pertenece o la popularidad se definió una función en base a su ID.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">get_artist_info</span><span style="color: #f8f8f2">(artist):</span>
+    <span style="color: #f8f8f2">artist_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist</span>
+
+    <span style="color: #66d9ef">try</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #f8f8f2">artist_info</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotify</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">artist(artist_id)</span>
+</pre></div>
+		<p>Además, se almacena en un archivo Excel individual en una carpeta que definimos como “paso3”.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">data</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{}</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_followers&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;followers&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;total&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_genres&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;genres&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_id&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_id</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_popularity&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;popularity&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">final</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">DataFrame</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">from_dict([data],</span> <span style="color: #f8f8f2">orient</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;columns&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">final</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_excel(f</span><span style="color: #e6db74">&quot;paso3/{artist}-artist_info.xlsx&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+</pre></div>
+		<p>A continuación, se realiza la lectura del archivo excel llamado “canciones_en_playlists.xlsx”, y se extraen los IDs de los artistas.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">df</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">read_excel(</span><span style="color: #e6db74">&quot;canciones_en_playlists.xlsx&quot;</span><span style="color: #f8f8f2">)</span>
+
+<span style="color: #f8f8f2">artist_ids</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">df[</span><span style="color: #e6db74">&quot;primer_artista_id&quot;</span><span style="color: #f8f8f2">]</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">unique()</span>
+<span style="color: #f8f8f2">artist_ids</span>  <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_ids</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">tolist()</span>
+<span style="color: #f8f8f2">jobs</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">len(artist_ids)</span>
+</pre></div>
+		<p>Seguidamente, nos encargamos de iterar sobre el ID de cada artista en la lista ‘“artist_ids” comprobando si existe un archivo excel con la información del artista. En caso de no existir, se realiza un llamamiento a la API de Spotify, se almacena en un archivo Excel y tras 2 o 3 segundos se pasa al siguiente artista.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">artist</span> <span style="color: #f92672">in</span> <span style="color: #f8f8f2">artist_ids</span> <span style="color: #f8f8f2">:</span>
+    <span style="color: #f8f8f2">job</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_ids</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">index(artist)</span>
+    <span style="color: #f8f8f2">artist_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist</span>
+    <span style="color: #f8f8f2">wait_time</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">random</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">randint(</span><span style="color: #ae81ff">2</span><span style="color: #f8f8f2">,</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(f</span><span style="color: #e6db74">&quot;working on job {job} of {jobs} | Wait time {wait_time}&quot;</span><span style="color: #f8f8f2">)</span>
+    <span style="color: #f8f8f2">path</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">f</span><span style="color: #e6db74">&quot;paso3/{artist}-artist_info.xlsx&quot;</span>
+    <span style="color: #66d9ef">if</span> <span style="color: #f92672">not</span> <span style="color: #f8f8f2">os</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">path</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exists(path):</span>
+        <span style="color: #f8f8f2">get_artist_info(artist)</span>
+        <span style="color: #f8f8f2">time</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sleep(wait_time)</span>
+    <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(f</span><span style="color: #e6db74">&quot;{artist} ja descarregat&quot;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #66d9ef">pass</span>
+</pre></div>
+		<p>Luego en otro código, se procede a realizar una combinación de las características de audio con los datos de las playlist utilizando el “track_id” como clave.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">joined</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">merge(final_audio,</span> <span style="color: #f8f8f2">df_playlists,</span> <span style="color: #f8f8f2">on</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;track_id&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">how</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;left&quot;</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+		<p>Se ajustan las claves de combinación para garantizar una alineación adecuada entre los DataFrames.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">joined[</span><span style="color: #e6db74">&quot;artist_id&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">joined[</span><span style="color: #e6db74">&quot;primer_artista_id&quot;</span><span style="color: #f8f8f2">]</span>
+</pre></div>
+		<p>Se hace una combinación final de los datos de los artistas con los datos combinados anteriores, se usa el artist_id como clave.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">final_dataframe</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">merge(final_2,</span> <span style="color: #f8f8f2">joined,</span> <span style="color: #f8f8f2">on</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;artist_id&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">how</span><span style="color: #f92672">=</span><span style="color: #e6db74">&quot;left&quot;</span><span style="color: #f8f8f2">)</span>
+</pre></div>
+		<p>Una vez realizada esta combinación se ha creado un DataFrame que contiene toda la información que queríamos y este se guarda en archivo excel para su uso posterior de uso y análisis en Tableau.</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #f8f8f2">final_dataframe</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_excel(</span><span style="color: #e6db74">&quot;final_with_audio_and_artist_info.xlsx&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+</pre></div>
+		<p>La combinación de datos implica integrar todos los diferentes datos extraidos individualmente en un solo DataFrame, y este proceso se realiza combinando DataFrames individuales utilizando claves específicas como las ID asegurando que la información se alinee de forma correcta para tener un archivo Excel con toda la información recopilada.</p>
+		<h3><b>Limitaciones</b></h3>
+		<p>En un momento de la obtención de datos, la API de Spotify nos presentó dificultades. Esto es debido a que existen limitaciones en cuanto a la cantidad de solicitudes que se pueden realizar.</p>
+		<p>Los errores frecuentes son el Error 429 (Too Many Requests) que aparece cuando se sobrepasa el límite de solicitudes que nos ofrece la API y por ello se tiene que reducir la velocidad de las peticiones y, el  Error 503 (Service Unavailable) que significa que el servicio de Spotify no se encuentra disponible ya sea por mantenimiento o posibles problemas en los servidores.</p>
+		<p>A continuación, indicamos una parte del código para solucionar este problema:</p>
+		<!-- HTML generated using hilite.me --><div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">def</span> <span style="color: #a6e22e">get_artist_info</span><span style="color: #f8f8f2">(artist):</span>
+    <span style="color: #f8f8f2">artist_id</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist</span>
+
+    <span style="color: #66d9ef">try</span><span style="color: #f8f8f2">:</span>
+        <span style="color: #f8f8f2">artist_info</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">spotify</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">artist(artist_id)</span>
+
+        <span style="color: #f8f8f2">data</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{}</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_followers&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;followers&quot;</span><span style="color: #f8f8f2">][</span><span style="color: #e6db74">&quot;total&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_genres&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;genres&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_id&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_id</span>
+        <span style="color: #f8f8f2">data[</span><span style="color: #e6db74">&quot;artist_popularity&quot;</span><span style="color: #f8f8f2">]</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">artist_info[</span><span style="color: #e6db74">&quot;popularity&quot;</span><span style="color: #f8f8f2">]</span>
+        <span style="color: #f8f8f2">final</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">pd</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">DataFrame</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">from_dict([data],</span> <span style="color: #f8f8f2">orient</span><span style="color: #f92672">=</span><span style="color: #e6db74">&#39;columns&#39;</span><span style="color: #f8f8f2">)</span>
+        <span style="color: #f8f8f2">final</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">to_excel(f</span><span style="color: #e6db74">&quot;paso3/{artist}-artist_info.xlsx&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">index</span><span style="color: #f92672">=</span><span style="color: #f8f8f2">False)</span>
+
+    <span style="color: #66d9ef">except</span> <span style="color: #f8f8f2">spotipy</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">exceptions</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">SpotifyException</span> <span style="color: #66d9ef">as</span> <span style="color: #f8f8f2">e:</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">http_status</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">429</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(e)</span>
+            <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Error 429 Too many requests Retry in 60 seconds&quot;</span><span style="color: #f8f8f2">)</span>
+            <span style="color: #f8f8f2">time</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sleep(</span><span style="color: #ae81ff">1800</span><span style="color: #f8f8f2">)</span>
+            <span style="color: #f8f8f2">get_artist_info(artist)</span>
+        <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">e</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">http_status</span> <span style="color: #f92672">==</span> <span style="color: #ae81ff">503</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(e)</span>
+            <span style="color: #66d9ef">print</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;Error 503 Retry in 60 seconds&quot;</span><span style="color: #f8f8f2">)</span>
+            <span style="color: #f8f8f2">time</span><span style="color: #f92672">.</span><span style="color: #f8f8f2">sleep(</span><span style="color: #ae81ff">1800</span><span style="color: #f8f8f2">)</span>
+            <span style="color: #f8f8f2">get_artist_info(artist)</span>
+        <span style="color: #66d9ef">else</span><span style="color: #f8f8f2">:</span>
+            <span style="color: #66d9ef">raise</span> <span style="color: #f8f8f2">e</span>
+</pre></div>
+		<p>La función ‘get_artist_info’ nos permite obtener la información del artista haciendo uso de ‘spotify.artist(artist_id)’. En caso de ocurrir alguna excepción, el código ejecuta el bloque ‘except’.</p>
+		<p>En caso de presentarse e.http_status == 429 para solventar este problema ejecutamos time.sleep(1800). El programa se detendrá 1800 segundos (30 minutos) y nos garantizará  un tiempo de espera suficiente para que el límite de tasa se restablezca.</p>
+		<p>En caso de obtener e.http_status == 503 procedemos a realizar la misma acción que con el Error 429.</p> 
+		<p>Si la excepción es diferente de 429 o 503 será devuelta al lugar donde se llamó a la función ‘get_artist_info’ permitiendo que el código que llama a la función maneje la excepción y a partir de ahí, obtengamos información sobre otros posibles errores.</p>
+		<p>Si bien la adaptación del código nos permite solucionar estos posibles fallos y evitar que el programa no responda bien a causa de las limitaciones de la API de Spotify esto conlleva un aumento del tiempo a la hora de obtener los datos. No obstante, es una buena forma de resolver estos problemas de la API.</p>
+		<p>Por otra parte, nos encontramos al extraer información de Spotify con la limitación del campo obtenido de géneros del artista unidos de esta forma:</p>
+		<p>['reggaeton', 'reggaeton flow', 'trap latino', 'urbano latino']</p>
+		<p>Para separarlos, haciendo uso de excel, procedimos a seleccionar la columna y a través de la función Dividir texto en columnas usando la coma como delimitador conseguimos separar los géneros en otras columnas. Además, para trabajar con unos datos más limpios procedimos a eliminar comillas simples y corchetes haciendo uso de la función buscar y reemplazar.</p>
+
+		<h3>Presentación del dataset</h3>
+		<p>El dataset en cuestión recoge información sobre 74 playlists de Spotify, cada una representando un país diferente de todo el mundo. Con un total de 3651 filas y 31 columnas, este conjunto de datos proporciona una visión amplia de la popularidad musical global y las características de las canciones incluidas en estas playlists.</p>
+                <p>El dataset contiene, 3651 filas que dada fila representa una canción única incluida en una de las 74 playlists, y 31 columnas que abarcan diversas características tanto de los artistas como de las canciones. </p>
+		<p>En cuanto a la integridad de los datos, es importante señalar qué información está disponible y cuál podría estar incompleta. Las columnas incluyen, entre otras, información sobre el número de seguidores del artista, géneros musicales, popularidad del artista, características de las canciones (como danceability, energy, key, loudness… y detalles específicos de las canciones (como duración, popularidad, nombre, y si es explícita o no). </p>
+		<p>Los datos presentes en cuestion, para ser entendidos, son los siguientes:
+		
+        <ul>
+        <li><p><b>artist_followers:</b> Número de seguidores del artista.</p></li>
+
+		<li><p><b>artist_genres:</b> Géneros musicales del artista.</p></li>
+
+		<li><p><b>artist_id:</b> Identificador único del artista en Spotify.</p></li>
+		<li><p><b>artist_popularity:</b> Popularidad del artista en Spotify.</p></li>
+		<li><p><b>danceability:</b> La capacidad de bailar de la canción. (1.0 es la pista más bailable)</p></li>
+		<li><p><b>energy:</b> La energía de la canción. (1.0 representa la canción más energética)</p></li>
+		<li><p><b>key:</b> La clave tonal de la canción (0 = Do, 1 = Do#, etc.).</p></li>
+		<li><p><b>loudness:</b> El volumen general de la pista en decibelios (dB).</p></li>
+		<li><p><b>mode:</b> El modo de la canción (0 = menor, 1 = mayor)</p></li>
+		<li><p><b>speechiness:</b> La presencia de palabras habladas en la pista. (1.0 representa la pista completamente hablada)</p></li>
+		<li><p><b>acousticness:</b> La probabilidad de que la canción sea acústica. (1.0 representa una canción completamente acústica)</p></li>
+		<li><p><b>instrumentalness:</b> La probabilidad de que la canción no contenga voces. (1.0 representa una pista completamente instrumental)</p></li>
+		<li><p><b>liveness:</b> La probabilidad de que la canción se haya grabado en vivo. (1.0 representa una pista en vivo)</p></li>
+		<li><p><b>valence:</b> La positividad de la canción. (1.0 es la pista más positiva)</p></li>
+		<li><p><b>tempo:</b> El tempo estimado de la canción en BPM (beats por minuto).</p></li>
+		<li><p><b>type:</b> Tipo de objeto en Spotify.</p></li>
+		<li><p><b>id uri, track_href, analysis_url:</b> Detalles y enlaces de la canción.</p></li>
+		<li><p><b>duration_ms_x, duration_ms_y time_signature, track_id:</b> Información sobre la duración y la métrica de la canción.</p></li>
+		<li><p><b>artistas:</b> Nombre de los artistas.</p></li>
+		<li><p><b>track_name:</b> Nombre de la canción.</p></li>
+		<li><p><b>popularity:</b> Popularidad de la canción en Spotify.</p></li>
+		<li><p><b>primer_artista_id, playlist_id, playlist:</b> Información sobre la playlist.</p></li>
+		<li><p><b>explicit:</b> Indica si la canción contiene contenido explícito.</p></li>
+
+    </ul>
+		<p>Aunque se proporciona una gran cantidad de información, es posible que algunos campos específicos no contengan datos para todas las filas, lo que puede deberse a la falta de información disponible en Spotify para ciertas canciones o artistas. </p>
+        <hr>
+        <br>
+        <h2>Apartado Divulgativo</h2>
+		<h3><b>Fenómeno y gráficos interactivos</b></h3></p>
+
+		<p>En la era digital, la música se ha convertido en un fenómeno verdaderamente global. Las plataformas de streaming, como Spotify, permiten que los usuarios de todo el mundo descubran y compartan canciones al instante, sin importar las fronteras. Entre estas plataformas, las listas de reproducción "top 50" de Spotify ofrecen una instantánea fascinante de las tendencias musicales en diferentes países. En este artículo, exploramos las playlists top 50 de Spotify en 73 países, analizando artistas, canciones, géneros y otros aspectos relevantes a través de una serie de gráficos interactivos.</p>
+		
+        <h3><b>Un mundo de géneros musicales</b></h3></p>
+
+		<p>Nuestro análisis comienza con un mapa de calor que muestra el género musical más popular en cada país. Al contar los géneros más presentes en las playlists top 50 de cada nación, descubrimos una rica diversidad de preferencias musicales.</p>
+		<div class='tableauPlaceholder' id='viz1717861415781' style='position: relative'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gn&#47;Gneroprincipalmsescuchadoporpases&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Gneroprincipalmsescuchadoporpases&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Gn&#47;Gneroprincipalmsescuchadoporpases&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717861415781');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1100px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1100px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<p>En este gráfico, podemos ver cómo géneros como el pop, el reggaetón y la música electrónica dominan en diferentes regiones. Por ejemplo, el pop es predominante en gran parte de Europa, mientras que el trap tiene una fuerte presencia en América Latina, donde todos los paises de centro américa, escuchan Trap latino como Bad Bunny, como también países como Colombia, Venezuela, Ecuador, Perú y Bolivia, por otro lado, en sur américa en países como Argentina, Chile, Paraguay y Uruguay escuchan Urbano Chileno.</p>
+		<br>
+        <h3><b>Ritmo y Movimiento: Las canciones más bailables</b></h3>
+		
+        <p>La capacidad de una canción para hacer que la gente se mueva es crucial para su popularidad. Nuestro segundo mapa de calor se centra en los países donde las playlists top 50 contienen las canciones más bailables.</p>
+		<div class='tableauPlaceholder' id='viz1717858342180' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ba&#47;bailiabilidad-generomasescuchado-recuentocanciones-especificosartistas&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='bailiabilidad-generomasescuchado-recuentocanciones-especificosartistas&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ba&#47;bailiabilidad-generomasescuchado-recuentocanciones-especificosartistas&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717858342180');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<p>Aquí, se destaca que los países latinoamericanos, conocidos por sus ritmos vibrantes, lideran la lista de las canciones más bailables.</p>
+		<br>
+        <h3><b>Canciones y artistas recurrentes</b></h3>
+		
+        <p>Un gráfico de tabla de resaltado nos muestra cuáles son las canciones y los artistas que aparecen en más playlists. Esta visualización resalta la popularidad global de ciertos hits y artistas.</p>
+		<div class='tableauPlaceholder' id='viz1717862165022' style='position: relative'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;Recuentodecancionesanivelmundial&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Recuentodecancionesanivelmundial&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;Recuentodecancionesanivelmundial&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717862165022');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<p>El gráfico revela que Artemas, con su canción "i like the way you kiss me", es el artista más destacado, registrando 45 en los países considerados con un promedio de 100, lo que significa una primera posición. Este resultado sugiere una alta popularidad y aceptación global de esta canción, este dato es notable ya que Artemas es un artista nuevo que alcanzado la cima en muy poco en tiempo gracias a redes sociales como Tiktok.</p>
+		<p>Sabrina Carpenter también muestra una viralidad con "Espresso" alcanzando 48 apariciones con un promedio de popularidad de 97.</p>
+		<p>Por otro lado, artistas como FloydMenor y Cris Mj con "Gata Only" (44 apariciones) y Djo con "End of Beginning" (33 apariciones) también demuestran una fuerte presencia internacional. La aparición de estos artistas en múltiples mercados sugiere un éxito significativo y una capacidad para resonar con audiencias diversas.</p>
+		<p>Canciones de artistas reconocidos como Drake ("Family Matters", 32 apariciones) y Taylor Swift ("Fortnight", 37 apariciones) continúan mostrando su relevancia en la escena musical global. La consistencia de estos artistas en mantener una presencia significativa refleja su habilidad para mantenerse relevantes y conectar con el público en un ámbito altamente competitivo.</p>
+		<p>Kendrick Lamar con "euphoria" (35 apariciones) y Rvssian, Rauw Alejandro, Chris Brown con "Santa" (31 apariciones) también destacan, consolidando su influencia en el mercado musical internacional.</p>
+		<p>Menos destacados, pero aún presentes, están artistas como Lay Bankz con "Tell Ur Girlfriend" (27 apariciones) y Tommy Richman con "MILLION DOLLAR BABY" (25 apariciones), indicando una presencia significativa, aunque no tan predominante como los líderes del gráfico.</p>
+		
+        <br>
+        <h3><b>Duración de las canciones</b></h3>
+		
+        <p>El siguiente gráfico de barras presenta la duración promedio en segundos de cada canción en las playlists top 50.</p>
+		<div class='tableauPlaceholder' id='viz1717862750076' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PR&#47;PROMEDIO_DURACION_MS_POR_PAIS&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PROMEDIO_DURACION_MS_POR_PAIS&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PR&#47;PROMEDIO_DURACION_MS_POR_PAIS&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717862750076');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1100px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1100px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<p>Este análisis revela que la mayoría de las canciones populares tienen una duración que oscila entre 180 y 240 segundos, lo que parece ser la fórmula ideal para captar la atención del público.</p>
+		<br>
+        <h3><b>Los artistas más populares</b></h3>
+
+		<p>Utilizando un gráfico de mapas en árbol, podemos visualizar qué artistas son los más populares y cuáles tienen más seguidores.</p>
+		<div class='tableauPlaceholder' id='viz1717857062765' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TO&#47;TOP50artistaspopularidadyseguidores&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TOP50artistaspopularidadyseguidores&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;TO&#47;TOP50artistaspopularidadyseguidores&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717857062765');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<p>En este gráfico, el color representa la popularidad del artista, mientras que el tamaño del bloque indica la cantidad de seguidores. Artistas como Bad Bunny y Ariana Grande se destacan no solo por su popularidad, sino también por su enorme base de seguidores.</p>
+		<br>
+        <h3><b>Las canciones más escuchadas a nivel mundial</b></h3>
+		<p>Para comenzar, hacemos un recuento de las canciones más escuchadas a nivel mundial y los artistas que las interpretan. Este gráfico interactivo destaca las canciones que dominan las listas de reproducción en cada país teniendo el top 50 y su popularidad dentro de la playlist</p>
+        <div class='tableauPlaceholder' id='viz1717956813707' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CM&#47;CMTHDCF36&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;CMTHDCF36' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;CM&#47;CMTHDCF36&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717956813707');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+     <p>Se pueden ver las canciones que lideran este recuento, demostrando su enorme popularidad global. Estos hits no solo han conquistado las listas de reproducción, sino que también han resonado en la cultura popular y en plataformas como TikTok.</p>
+<br>
+     <h3><b>La popularidad de Taylor Swift por canciones</b></h3>
+     <p>Dada la enorme popularidad de Taylor Swift, hemos creado un gráfico exclusivo que muestra un mapa de calor de la popularidad de sus canciones por países.</p>
+     
+     <p>Este gráfico destaca cómo Taylor Swift ha capturado audiencias en todo el mundo, con países como Estados Unidos, Reino Unido y Australia mostrando una alta concentración de escuchas. Sus canciones, que a menudo se convierten en tendencias en redes sociales, reflejan su capacidad para conectar con una audiencia global. De este gráfico se destaca  la relevancia de la canción de “Fortnight” con Post Malone que tiene presencia en 37 países con un promedio de popularidad de 100.</p>
+     <div class='tableauPlaceholder' id='viz1717957228089' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GX&#47;GXM6P2NRZ&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;GXM6P2NRZ' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GX&#47;GXM6P2NRZ&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='es-ES' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1717957228089');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+     <br>
+     <h2>Conclusiones y futuras investigaciones</h2>
+
+    <p>Este estudio ha demostrado cómo las playlists "top 50" de Spotify pueden ofrecer una visión rica y detallada de las tendencias musicales a nivel global. Al analizar datos de 73 países, hemos podido identificar patrones y preferencias musicales que varían significativamente entre diferentes regiones. Las siguientes son las conclusiones clave de nuestro análisis:</p>
+    <ul>
+    <li><p>Existe una notable diversidad en las preferencias musicales de diferentes países, lo que refleja tanto las influencias culturales locales como las tendencias globales.</p></li>     
+	<li><p>Algunos géneros musicales tienen una popularidad más universal, mientras que otros son más específicos de ciertas regiones. Esto sugiere que la música puede ser tanto unificador como un reflejo de la diversidad cultural.</p></li>
+	<li><p>Hemos observado una mezcla de artistas globalmente reconocidos y talentos locales en las playlists, lo que indica que mientras algunos artistas alcanzan una fama mundial, otros mantienen un atractivo regional significativo.</p></li>
+	<li><p>Las características técnicas de las canciones (como danceability, energy, loudness, etc.) varían ampliamente, lo que podría estar relacionado con las preferencias específicas de los oyentes en diferentes culturas.</p>
+    </ul>
+    <p>Aunque nuestro estudio proporciona una comprensión integral de las tendencias musicales globales, hay varias áreas que podrían beneficiarse de investigaciones adicionales como:</p></li>
+	<ul>
+    <li><p>Ampliar el análisis para incluir datos de playlists a lo largo del tiempo podría revelar cómo cambian las preferencias musicales y la popularidad de los géneros/artistas con el tiempo.</p></li>
+	<li><p>Investigar cómo eventos específicos (como festivales, lanzamientos de álbumes importantes, eventos políticos, etc.) afectan las tendencias musicales en diferentes regiones.</p></li>
+	<li><p>Un estudio más detallado sobre las demografías de los oyentes (edad, género, ubicación) podría proporcionar información más precisa sobre qué grupos de personas están impulsando ciertas tendencias.</p></li>
+	<li><p>Examinar cómo los algoritmos de recomendación de Spotify influyen en la popularidad de las canciones y artistas podría ofrecer una perspectiva sobre el papel de la tecnología en la formación de gustos musicales.</p></li>
+	<li><p>Comparar los datos de Spotify con otras plataformas de streaming para ver si existen diferencias significativas en las tendencias musicales podría ofrecer una visión más completa del panorama musical digital.</p></li>
+</ul>
+            <footer>
+			<hr>
+			<p>
+            </p>
+
+			</footer>
+		</div>
+	</body>
+</html>
